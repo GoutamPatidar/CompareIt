@@ -1,0 +1,44 @@
+
+{% load static%}
+<style>
+       
+
+    .footer {
+        background-color: rgb(30, 24, 24);
+       padding: 20px 0px;
+       text-align: center !important;
+
+    }
+    .text-muted{
+        color: #fff !important;
+    }
+    .ms-3{
+        padding: 20px;
+    }
+</style>
+<section class="footer">
+    <div class="container " style="margin:0px 50px; text-align: center;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 ">
+
+            <div class="col-md-4 mb-0 text-muted">
+                <p class="p-footer" >Created with Proud!</p>
+                <p class="p-footer">Made in India</p>
+                <p class="p-footer">&copy; 2023 CompareIt!, Inc</p>
+
+            </div>
+
+            <a href="{% url 'index' %}"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="{% static 'images/default-logo.png' %}" width="100" height="70">
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/goutam.patidar.169"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/patidar_g_/"><i class="fa-brands fa-instagram"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://twitter.com/GOUTAMP72288166"><i class="fa-brands fa-twitter"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/patidar-goutam-001/"><i class="fa-brands fa-linkedin"></i></a></li>
+
+              </ul>
+        </footer>
+    </div>
+</section>

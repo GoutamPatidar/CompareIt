@@ -1,0 +1,149 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="History.css">
+    <style>
+        body{
+            margin: 0px;
+        }
+        .history {
+           
+            background-color: #5fc1ae;
+            /* height: 800px; */
+            padding: 5rem 12rem;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #fff;
+            
+            font-weight: 400;
+            text-align: left;
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .tbl-header {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .tbl-content {
+            height: 300px;
+            overflow-x: auto;
+            margin-top: 0px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 16px;
+            font-family:'Open Sans',sans-serif;
+        }
+
+        th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 12px;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-family:'Open Sans',sans-serif;
+        }
+
+        td {
+            padding: 15px;
+            text-align: left;
+            vertical-align: middle;
+            font-weight: 300;
+            font-size: 12px;
+            color: #fff;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+            font-family:'Open Sans',sans-serif;
+        }
+
+        td>a{
+            color: #fff;
+        }
+        td>a:hover{
+            color: #544c4c;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <section class="history ">
+        <h1>History</h1>
+        <table class="">
+            <thead class="tbl-header">
+                <tr>
+                    <th scope="col">S.NO</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">DATE/TIME</th>
+                    <th scope="col">CHECK</th>
+                </tr>
+            </thead>
+            <tbody class="tbl-content">
+                {% for item in history reversed%}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{item.Product_name}}</td>
+                    <td>{{item.DateTime}}</td>
+                    <td><a href="{%url 'Check_Again'%}?data={{item.Product_name}}">Check again</a></td>
+                </tr>
+                {%endfor%}
+                {% comment %} <tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>samsung s23ultra</td>
+                    <td>12 bje</td>
+                    <td><a href="#">Check again</a></td>
+                </tr> {% endcomment %}
+            </tbody>
+        </table>
+
+    </section>
+    {% include 'footer.html' %}
+</body>
+
+</html>

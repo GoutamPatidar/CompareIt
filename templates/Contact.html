@@ -1,0 +1,203 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .u-clearfix-sec {
+            background-color: #5fc1ae;
+            padding: 5rem 12rem;
+
+        }
+
+        .u-text {
+            color: #fff;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-bottom: 5px;
+
+        }
+
+        .u-text-4 {
+            line-height: 20px;
+            margin-top: 3px;
+            margin-bottom: 15px;
+        }
+
+        .u-text-3 {
+            margin-top: 20px;
+        }
+
+        .u-text-1 {
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .section-2-cont {
+            text-align: center;
+            padding: 80px 12rem;
+        }
+
+        .col {
+            text-align: left;
+        }
+
+        .h1 {
+            color: #5fc1ae;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 35px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .con-div {
+            background-color: #5fc1ae;
+            padding: 25px;
+            border-radius: 25px;
+            width: 70%;
+        }
+
+        .con-p {
+                
+                color: #5fc1ae;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 20px;
+            }
+.c-2{
+
+}
+            .con-p-d {
+                color: #ffffff;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 20px;
+            }
+            .u-clearfix-1{
+                background-color: rgb(244, 238, 238);
+                border-radius: 20px;
+                padding: 30px;
+                height: 400px;
+            }
+            .u-form-group{
+                margin: 10px;
+            }
+            .u-label{
+                display: block;
+
+            }
+            .u-rad{
+                border-radius: 20px;
+                border: none;
+                width: 100%;
+                height: 40px;
+                padding:15px;
+            }
+            .u-alignt{
+                text-align: center;
+            }
+        .bt{
+
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <section class="u-clearfix-sec">
+        <div class="u-clearfix ">
+            <h5 class="u-custom-font u-font-georgia u-text u-text-default u-text-1"> Need Help?</h5>
+            <p class="u-text u-text-default u-text-2"> At CompareIt!, we're here to assist you with any questions or
+                concerns
+                you may have. Check out the frequently asked questions below for quick answers to common queries:</p>
+            <p class="u-text u-text-default u-text-3"> How do I create an account on CompareIt!?</p>
+            <p class="u-text u-text-default u-text-4"> To create an account, click on the "Register" button on the
+                homepage.
+                Fill in the required information, such as your username, age, mobile number, email, and password. Once
+                you
+                submit the registration form, your account will be created.</p>
+            <p class="u-text u-text-default u-text-3"> How can I search for products on CompareIt!?</p>
+            <p class="u-text u-text-default u-text-4"> On the homepage, you'll find a search bar. Simply enter the name
+                or
+                description of the product you're looking for and click the "Search" button. Our system will display
+                relevant
+                results based on your search query.</p>
+            <p class="u-text u-text-default u-text-3"> Can I compare prices from different online retailers?</p>
+            <p class="u-text u-text-default u-text-4"> Yes, absolutely! CompareIt! collects pricing information from
+                various
+                online retailers. When you search for a product, our platform displays a list of sellers and their
+                corresponding
+                prices, allowing you to compare and choose the best deal.</p>
+            <p class="u-text u-text-default u-text-3"> What if I encounter an issue with a product or seller?</p>
+            <p class="u-text u-text-default u-text-4"> If you experience any problems with a product or seller, we
+                recommend
+                reaching out to the respective retailer's customer support directly. They will be able to assist you
+                further
+                with your concerns.</p>
+            <p class="u-text u-text-11"> If your question is not listed above or you need further
+                assistance,
+                please don't hesitate to contact our support team. You can reach us via email at
+                ​Supportcompareit@gmail.com or
+                through our social media channels.</p>
+        </div>
+    </section>
+
+    <section class="section-2-cont">
+        <div class="container">
+            <div class="row">
+                <div class="col c-1">
+                    <h3 class="h1">
+                        We're here to support
+                    </h3>
+                    <p class="con-p">Address:- 251,9A,Saket Nagar, Bhopal, M.P.</p>
+                    <p class="con-p">Contact details:- +919301258388</p>
+                    <p class="con-p"> Email:- Supportcompareit@gmail.com</p>
+                    <div class="con-div">
+                        <p class="con-p-d">Opening Times </p>
+                        <p class="con-p-d"> Mon - Fri: 09am - 07​pm</p>
+                        <p class="con-p-d"> Sat - Sun: Closed</p>
+                    </div>
+                </div>
+                <div class="col c-2">
+                    <form method= 'POST' action="{% url 'Contact_email' %}" class="u-clearfix-1">
+                         {% csrf_token %}
+                        <div class="u-form-group ">
+                            <label class="u-label">Name</label>
+                            <input type="text" placeholder="Enter your Name" name="name" class="u-rad" required="">
+                        </div>
+                        <div class="u-form-group">
+                            <label class="u-label">Email</label>
+                            <input type="email" placeholder="Enter a valid email address" name="email" class=" u-rad"
+                                required="">
+                        </div>
+                        <div class="u-form-group">
+                            <label class="u-label">Message</label>
+                            <textarea placeholder="Enter your message" rows="4" cols="50" name="message" class=" u-rad"
+                                required=""></textarea>
+                        </div>
+                        <div class="u-alignt u-form-group">
+                            <button type="submit" class="btn btn-nav btn-outline-primary"> Submit</button>
+                        </div>
+                        {% if success_message %}
+                        <h4 style="color:green;font:georgia;">{{success_message}}</h4>
+                        {% endif%}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+</body>
+
+</html>

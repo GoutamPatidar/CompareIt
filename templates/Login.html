@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="{% static 'css/Login.css'%}">
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h2>Login</h2>
+      {% for message in messages%}
+      <h3 style="color: rgb(211, 53, 53);">{{message}}</h3>
+      {% endfor%}
+      <form method="POST" action="{% url 'Login' %}" id="loginForm">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Email</label>
+          <input type="username" id="loginEmail" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" required>
+        </div>
+        <div class="button">
+        <button type="submit">Login</button>
+    </div>
+      </form>
+      <p>Don't have an account? <a href="{% url 'Registration' %}">Register here</a></p>
+    </div>
+  </div>
+</body>
+</html>
