@@ -37,7 +37,7 @@ def Profile(request):
     print(us)
     user=profile_data.objects.get(Email=us)
     print(user.Username)
-    return render(request, 'Profile.html',{'user':user})
+    return render(request, 'Profile.html',{'user':us,'us':user})
     
 def Profile_edit(request):
     us=request.user
@@ -63,12 +63,12 @@ def Profile_edit(request):
             us.email=email
             us.set_password(pass0)
             us.save()
-            return render(request, 'Profile.html',{'user':user})
+            return render(request, 'Profile.html',{'user':us,'us':user})
            
         else:
             messages.info(request, 'Password does not Match')
             return redirect('Profile_edit')
-    return render(request, 'Profile.html',{'user':user})    
+    return render(request, 'Profile.html',{'user':us,'us':user})    
 
 
 def Login(request):
