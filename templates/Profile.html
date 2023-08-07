@@ -1,194 +1,122 @@
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Contact</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <style>
-        body {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+    body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 
-
-
-        .section-2-cont {
-            padding: 80px 12rem;
-            text-align: center; 
-            background-color: #5fc1ae;
-
-        }
-
-        .col {
-            text-align: left;
-        }
-
-        .h1 {
-            color: #ffffff;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 35px;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-
-        .con-div {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 25px;
-            width: 70%;
-        }
-
-        .con-p {
-
-            color: #ffffff;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 20px;
-        }
-
-        .u-clearfix-1 {
-            background-color: rgb(244, 238, 238);
-            border-radius: 20px;
-            padding: 30px;
-            height: auto;
-            {% comment %} width: 30rem; {% endcomment %}
-        }
-
-        .u-form-group {
-            margin: 10px;
-            text-align: left;
-        }
-
-        .u-label {
-            display: block;
-
-        }
-
-        .u-rad {
-            border-radius: 20px;
-            border: none;
-            width: 100%;
-            height: 40px;
-        }
-
-        .u-alignt {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .c-1 {
-            padding-top: 50px;
-        }
-        .c-2{
-            text-align: center;
-        }
-
-        
-.btn-nav-1 {
-    color: #fff;
-    font-weight: 600;
-    border: 3px solid #fff;
-    border-radius: 20px;
-    padding: 7px 18px;
-}
-
-.btn-nav-1:hover {
-    color: #5fc1ae;
-    background-color: #fff;
-    border: 3px solid #5fc1ae;
-}
-    </style>
-   
+    .white {
+        color: #fff;
+    }
+    .u-rad {
+        border-radius: 20px;
+        border: None;
+        background-color: #c0bfb9;
+        width: 100%;
+    }
+    .newc{
+        color: #5fc1ae;
+        font-weight: 300;
+    }
+</style>
 </head>
-
 <body>
-    {% include 'navbar.html' %}   
-    <div class="container-fluid">
-    <section class="section-2-cont">
-        <h3 class="h1" style="text-align: left;">
+
+    {% include 'navbar.html' %}
+
+
+    <div class="container-fluid py-5 px-3 text-center" style="background-color: #5fc1ae;">
+        <h3 class="display-5 my-3 text-left white " style="font-weight: 500;  ">
             Profile Details:-
         </h3>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col c-1" style="display: block;" id="left-div">
+       
+            <div class="col text-left white" style="display: block;" id="left-div">
 
-                    <p class="con-p">Name:- {{us.Username}}</p>
+                <p class="con-p">Name:- {{us.Username}}</p>
 
-                    <p class="con-p">Age:- {{us.Age}} year</p>
-                    <p class="con-p">Contact details:- {{us.Mobile}}</p>
-                    <p class="con-p"> Email:- {{us.Email}}</p>
-                    <p class="con-p">Address:- {{us.Address}}</p>
-                    <div class=" u-form-group" style="margin-top: 30px;">
-                        <button type="submit" class="btn  btn-nav-1 btn-outline-primary" id="myBtn1"> Edit Details</button>
+                <p class="con-p">Age:- {{us.Age}} year</p>
+                <p class="con-p">Contact details:- {{us.Mobile}}</p>
+                <p class="con-p"> Email:- {{us.Email}}</p>
+                <p class="con-p">Address:- {{us.Address}}</p>
+                <div class=" u-form-group" style="margin-top: 30px;">
+                    <button type="submit" class="btn  btn-nav-1 btn-primary white" id="myBtn1"> Edit Details</button>
+                </div>
+
+            </div>
+       
+        
+            <div class="col-md-3 text-left" style="background-color: white; display: None;"  id="right-div">
+                {% for message in messages%}
+                <h3 style="color: rgb(211, 53, 53);">{{message}}</h3>
+                {% endfor%}
+                <form  method="POST" action="{% url 'Profile_edit'%}" class="u-clearfix-1" >
+                    {% csrf_token %}
+                    <div class="u-form-group py-3  ">
+                        <label class="d-block pl-2 newc">Name</label>
+                        <input type="text" placeholder="Enter your Name" name="Name" class="u-rad p-3" required="">
+                    </div>
+                    <div class="u-form-group py-3">
+                        <label class="d-block pl-2 newc">Age</label>
+                        <input type="number" placeholder="Enter a valid Age" name="Age" class=" u-rad p-3" required="">
+                    </div>
+                    <div class="u-form-group py-3">
+                        <label class="d-block pl-2 newc">Email</label>
+                        <input type="email" placeholder="Enter a valid email address" name="Email" class=" u-rad p-3"
+                            required="">
+                    </div>
+                    <div class="u-form-group py-3">
+                        <label class="d-block pl-2 newc">Mobile No.</label>
+                        <input type="Phoneno" placeholder="Enter a valid mobile number" name="Mobile" class=" u-rad p-3"
+                            required="">
                     </div>
 
-                </div>
-                <div class="col c-2">
-                    {% for message in messages%}
-                    <h3 style="color: rgb(211, 53, 53);">{{message}}</h3>
-                    {% endfor%}
-                    <form  method="POST" action="{% url 'Profile_edit'%}" class="u-clearfix-1" style="display: none;" id="right-div">
-                        {% csrf_token %}
-                        <div class="u-form-group ">
-                            <label class="u-label">Name</label>
-                            <input type="text" placeholder="Enter your Name" name="Name" class="u-rad" required="">
-                        </div>
-                        <div class="u-form-group">
-                            <label class="u-label">Age</label>
-                            <input type="number" placeholder="Enter a valid Age" name="Age" class=" u-rad" required="">
-                        </div>
-                        <div class="u-form-group">
-                            <label class="u-label">Email</label>
-                            <input type="email" placeholder="Enter a valid email address" name="Email" class=" u-rad"
-                                required="">
-                        </div>
-                        <div class="u-form-group">
-                            <label class="u-label">Mobile No.</label>
-                            <input type="Phoneno" placeholder="Enter a valid mobile number" name="Mobile" class=" u-rad"
-                                required="">
-                        </div>
-
-                        <div class="u-form-group">
-                            <label class="u-label">Address</label>
-                            <input type="Address" placeholder="Enter a valid Address" name="Address" class=" u-rad"
-                                required="">
-                        </div>
-                        <div class="u-form-group">
-                            <label class="u-label">Password</label>
-                            <input type="password" placeholder="Enter a Password" name="Password" class=" u-rad"
-                                required="">
-                        </div>
-                        <div class="u-form-group">
-                            <label class="u-label">Confirm Password</label>
-                            <input type="password" placeholder="Enter a Password Again" name="CPassword" class=" u-rad"
-                                required="">
-                        </div>
+                    <div class="u-form-group py-3">
+                        <label class="d-block pl-2 newc">Address</label>
+                        <input type="Address" placeholder="Enter a valid Address" name="Address" class=" u-rad p-3"
+                            required="">
+                    </div>
+                    <div class="u-form-group py-3">
+                        <label class="d-block pl-2 newc">Password</label>
+                        <input type="password" placeholder="Enter a Password" name="Password" class=" u-rad p-3"
+                            required="">
+                    </div>
+                    <div class="u-form-group py-3">
+                        <label class="d-block pl-2 newc">Confirm Password</label>
+                        <input type="password" placeholder="Enter a Password Again" name="CPassword" class=" u-rad p-3"
+                            required="">
+                    </div>
 
 
-                        <div class="u-alignt u-form-group">
-                            <button type="submit" class="btn  btn-nav-1 btn-outline-primary " id="myBtn-2" href="{% url 'Profile_edit' %}"> Submit</button>
-                        </div>
+                    <div class="u-form-group py-3 text-center">
+                        <button type="submit" class="btn btn-lg  btn-nav-1 btn-outline-primary " id="myBtn-2" href="{% url 'Profile_edit' %}"> Submit</button>
+                    </div>
 
-                    </form>
-                </div>
+                </form>
             </div>
-        </div>
-    </section>
-</div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-crossorigin="anonymous"></script>
+      
+    </div>
+     {% include 'footer.html' %}
+
+
+     
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-crossorigin="anonymous"></script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-crossorigin="anonymous"></script>
-    {% include 'footer.html' %}
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
      <script>
         document.getElementById("myBtn1").addEventListener("click", function(){
             // alert("Hello World!");
@@ -213,5 +141,4 @@ crossorigin="anonymous"></script>
         });
     </script>
 </body>
-
 </html>
