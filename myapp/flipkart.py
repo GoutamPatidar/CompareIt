@@ -20,7 +20,7 @@ def link_generator(name):
     edge_options.use_chromium = True
     edge_options.add_argument('--headless') #for not opening the the browswer pop up
    
-    driver = webdriver.Edge(service=Service('C:/Users/PATIDAR_G_/edgedriver_win64'), options=edge_options) # Replace 'path_to_edgedriver' with the actual path to the downloaded Edge WebDriver executable
+    driver = webdriver.Edge(service=Service('E:/Main_project/compareit/env/Scripts/edgedriver_win64/msedgedriver.exe'), options=edge_options) # Replace 'path_to_edgedriver' with the actual path to the downloaded Edge WebDriver executable
     driver.get(url)# Use the WebDriver to navigate to the URL
 
     driver.implicitly_wait(20)# Wait for the page to load (you can use explicit waits here if needed)

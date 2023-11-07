@@ -20,13 +20,14 @@ def link_generator(name):
     edge_options.use_chromium = True
     edge_options.add_argument('--headless') #for not opening the the browswer pop up
    
-    driver = webdriver.Edge(service=Service('C:/Users/PATIDAR_G_/edgedriver_win64'), options=edge_options) # Replace 'path_to_edgedriver' with the actual path to the downloaded Edge WebDriver executable
+    driver = webdriver.Edge(service=Service('E:/Main_project/compareit/env/Scripts/edgedriver_win64/msedgedriver.exe'), options=edge_options) # Replace 'path_to_edgedriver' with the actual path to the downloaded Edge WebDriver executable
     driver.get(url)# Use the WebDriver to navigate to the URL
 
     driver.implicitly_wait(10)# Wait for the page to load (you can use explicit waits here if needed)
     page_source = driver.page_source# Get the page source after the JavaScript has executed
    
     req_content = BeautifulSoup(page_source, 'html.parser') # Parse the page source with BeautifulSoup
+    # print(req_content)
   
     img=[]  
     name=[]
@@ -36,9 +37,13 @@ def link_generator(name):
     del_li=[]
 
     # Find links using BeautifulSoup
-    data_cont_img_imp = req_content.find_all('div', {'class': 's-product-image-container aok-relative s-text-center s-image-overlay-grey puis-image-overlay-grey s-padding-left-small s-padding-right-small puis-spacing-small s-height-equalized puis puis-vnjufzhntlqm11zjo2xc51q7r1'})
-    data_cont_data_imp=req_content.find_all('div',{'a-section a-spacing-small puis-padding-left-small puis-padding-right-small'})
-    data_cont_img_imp_try = req_content.find_all('div', {'class': 's-product-image-container aok-relative s-text-center s-image-overlay-grey puis-image-overlay-grey s-padding-left-small s-padding-right-small puis-spacing-small s-height-equalized puis puis-vnjufzhntlqm11zjo2xc51q7r1'})
+    data_cont_img_imp = req_content.find_all('div', {'class': 's-product-image-container aok-relative s-text-center s-image-overlay-grey puis-image-overlay-grey s-padding-left-small s-padding-right-small puis-spacing-small s-height-equalized puis puis-v2q9dos4w4qqgu20zj8pkw7yd24'})
+    data_cont_data_imp=req_content.find_all('div',{'class':'a-section a-spacing-small puis-padding-left-small puis-padding-right-small'})
+    data_cont_img_imp_try = req_content.find_all('div', {'class': 's-product-image-container aok-relative s-text-center s-image-overlay-grey puis-image-overlay-grey s-padding-left-small s-padding-right-small puis-spacing-small s-height-equalized puis puis-v2q9dos4w4qqgu20zj8pkw7yd24'})
+
+    # print(data_cont_img_imp)
+    # print("               //////////////////////////////////////////////////\n////////////////////////\n")
+    # print(data_cont_data_imp)
 
     if data_cont_img_imp and data_cont_data_imp:#used for horizontal page
         print("Trying to access the data [Block 1] into given page......................................")
@@ -118,8 +123,8 @@ def link_generator(name):
 
 
     else :#use for vertical page
-        data_cont_img_imp = req_content.find_all('div', {'class': 'sg-col sg-col-4-of-12 sg-col-4-of-16 sg-col-4-of-20 sg-col-4-of-24 s-list-col-left'})
-        data_cont_data_imp=req_content.find_all('div',{'sg-col sg-col-4-of-12 sg-col-8-of-16 sg-col-12-of-20 sg-col-12-of-24 s-list-col-right'})
+        data_cont_img_imp = req_content.find_all('div', {'class': 'puisg-col puisg-col-4-of-12 puisg-col-4-of-16 puisg-col-4-of-20 puisg-col-4-of-24 puis-list-col-left'})
+        data_cont_data_imp=req_content.find_all('div',{'puisg-col puisg-col-4-of-12 puisg-col-8-of-16 puisg-col-12-of-20 puisg-col-12-of-24 puis-list-col-right'})
 
         if data_cont_img_imp and data_cont_data_imp:
             print("Trying to access the data [Block 3] into given page......................................")
