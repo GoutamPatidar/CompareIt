@@ -5,7 +5,7 @@ CompareIt is a dynamic web application designed to provide users with real-time 
 Tools \& technologies used: HTML, CSS, JS, Python (Django, Selenium, Scrapy)
 
 CompareIt is a dynamic web application designed to provide users with real-time price comparisons between products on two major e-commerce platforms (Flipkart \& Amazon). This project ensures that users can make informed purchasing decisions by accessing up-to-the-minute pricing information and product details from both online retailers.
-![Screenshot (26)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/6c11f791-b7c8-4ff9-903e-edf772d67615)
+
 ![Screenshot (12)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/85f49a5a-f07c-4030-895d-a24b2f293ff5)
 ![Screenshot (13)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/32da7575-868d-4ba8-8955-0902e7f5d8cb)
 ![Screenshot (14)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/b028e84e-26ba-4ddb-9fa3-5de887f29973)
@@ -20,3 +20,4 @@ CompareIt is a dynamic web application designed to provide users with real-time 
 ![Screenshot (23)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/5160fab4-e24d-4006-a32d-48d9d6b6991e)
 ![Screenshot (24)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/725a3b59-87d8-4494-a428-056b73e1eb47)
 ![Screenshot (25)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/c9d934a7-28db-4ec3-8ced-d12d4bb664b7)
+![Screenshot (26)](https://github.com/GoutamPatidar/CompareIt/assets/73788341/6c11f791-b7c8-4ff9-903e-edf772d67615)
